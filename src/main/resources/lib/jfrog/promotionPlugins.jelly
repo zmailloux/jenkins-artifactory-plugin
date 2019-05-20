@@ -36,8 +36,8 @@
                         <f:checkbox default="false" name="deployBuild" id="deployBuild"/>
                         <label class="attach-previous">${%Deploy Build}</label>
                     </f:entry>
-                    <f:entry title="${%deployURL}" field="deployURL" help="/plugin/artifactory/help/release/PromoteBuildAction/help-deployURL.html">
-                        <textarea name="Deploy Job URL" rows="1" class="setting-input" id="deployURL"/>
+                    <f:entry title="${%Deploy Job URL}" field="deployURL" help="/plugin/artifactory/help/release/PromoteBuildAction/help-deployURL.html">
+                        <textarea name="deployURL" rows="1" class="setting-input" id="deployURL"/>
                     </f:entry>
                     <f:entry field="includeDependencies"
                              help="/plugin/artifactory/help/release/PromoteBuildAction/help-includeDependencies.html">

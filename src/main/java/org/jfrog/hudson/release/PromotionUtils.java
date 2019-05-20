@@ -54,7 +54,7 @@ public class PromotionUtils {
 
         if (deployBuild) {
             listener.getLogger().println("Trigger the deployment of the build.");
-            curlDeployBuild(deployURL);
+            curlDeployBuild(deployURL, listener);
             listener.getLogger().println("Build triggered...");
         }
         else{
@@ -65,9 +65,11 @@ public class PromotionUtils {
     }
 
 
-    public static void curlDeployBuild(String jobURL){
-        //String command = "curl -I -u admin:11d03fad505946fa3f70c388d6560db3ff http://34.66.121.141:8080/view/mule/job/mule-deploy-dev/buildWithParameters?token=wefiytgwiefiweihfqweiodf&api=json-app&deploy_env=dev";
-        String command = "curl -I -u admin:11d03fad505946fa3f70c388d6560db3ff " + jobURL;
+    public static void curlDeployBuild(String jobURL, TaskListener listener){
+        // TODO: Abstract credentials out
+        String command = "curl -k -I -u admin:11d03fad505946fa3f70c388d6560db3ff " + jobURL;
+
+        listener.getLogger().println(command);
         Process process = null;
         try {
             process = Runtime.getRuntime().exec(command);

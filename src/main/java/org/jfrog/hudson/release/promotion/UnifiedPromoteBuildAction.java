@@ -337,6 +337,11 @@ public class UnifiedPromoteBuildAction extends TaskAction implements BuildBadgeA
 
         // StaplerRequest.bindParameters doesn't work well with jelly <f:checkbox> element,
         // so we set the "boolean" fields manually
+        if (pluginSettings.get("deployURL") != null) {
+            this.setDeployURL(pluginSettings.getString("deployURL"));
+        }
+
+
         if (pluginSettings.get("includeDependencies") != null) {
             this.setIncludeDependencies(pluginSettings.getBoolean("includeDependencies"));
         }

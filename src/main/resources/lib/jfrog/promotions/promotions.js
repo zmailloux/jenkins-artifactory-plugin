@@ -58,8 +58,10 @@ function removePlugins(selectPlugin) {
 
 function fillNonePluginFormDefaultValues(promotionConfig, selectTarget, selectSource) {
     var promotionComment = document.getElementById("promotionComment");
-    var includeDependencies = document.getElementById("includeDependencies");
+    var deployBuild = document.getElementById("deployBuild");
+    var deployURL = document.getElementById("deployURL");
     var useCopy = document.getElementById("useCopy");
+    var includeDependencies = document.getElementById("includeDependencies");
     var failFast = document.getElementById("failFast");
 
     selectSource.value = promotionConfig["sourceRepo"];
@@ -67,6 +69,9 @@ function fillNonePluginFormDefaultValues(promotionConfig, selectTarget, selectSo
     promotionComment.value = promotionConfig["comment"];
     promotionComment.innerText = promotionConfig["comment"];
     includeDependencies.checked = promotionConfig["includeDependencies"];
+    deployBuild.checked = promotionConfig["deployBuild"];
+    deployURL.value = promotionConfig["deployURL"];
+    deployURL.innerText = promotionConfig["deployURL"];
     useCopy.checked = promotionConfig["copy"];
     failFast.checked = promotionConfig["failFast"];
     fillTargetStatuses(promotionConfig);
